@@ -5,6 +5,7 @@ node_js:
 env:
 - SERVICENAME=feed-service
 - SERVICENAME=user-service
+- SERVICENAME=reverseproxy
 
 services:
   - docker
