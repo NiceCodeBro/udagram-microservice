@@ -16,7 +16,7 @@ spec:
         service: reverseproxy
     spec:
       containers:
-      - image: selimdockerhub/reverseproxy
+      - image: selimdockerhub/reverseproxy-service
         name: reverseproxy
         imagePullPolicy: Always          
         resources:
