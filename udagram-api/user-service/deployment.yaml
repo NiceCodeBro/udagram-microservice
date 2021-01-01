@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service
+  labels:
+    app: user-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-service
+  template:
+    metadata:
+      labels:
+        app: user-service
+    spec:
+      containers:
+      - name: user-service
+        image: selimdockerhub/user-service
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 8080
+        env:
+        - name: POSTGRES_HOST
+          valueFrom:
+            secretKeyRef:
+              name: user-service-secret
+              key: POSTGRES_HOST
+        - name: POSTGRES_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: user-service-secret
+              key: POSTGRES_USERNAME
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: user-service-secret
+              key: POSTGRES_PASSWORD
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              name: user-service-secret
+              key: POSTGRES_DB
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: common-secret
+              key: JWT_SECRET               
+        - name: AWS_BUCKET
+          valueFrom:
+            secretKeyRef:
+              name: common-secret
+              key: AWS_BUCKET
+        - name: AWS_REGION
+          valueFrom:
+            secretKeyRef:
+              name: common-secret
+              key: AWS_REGION    
+        - name: AWS_PROFILE
+          valueFrom:
+            secretKeyRef:
+              name: common-secret
+              key: AWS_PROFILE  
