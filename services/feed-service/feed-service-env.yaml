@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: feed-service-secret
+type: Opaque
+data:
+  POSTGRES_DB: <base64 db name>
+  POSTGRES_HOST: <base64 db host >
+  POSTGRES_USERNAME: <base64 db username >
+  POSTGRES_PASSWORD: <base64 db pass>
