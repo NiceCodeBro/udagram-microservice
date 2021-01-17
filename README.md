@@ -1,3 +1,13 @@
+Table of Contents
+=================
+<!--ts-->
+   * [Udagram Image Filtering Application](#udagram-image-filtering-application)
+   * [Demo](#demo)
+   * [Project Architecture Diagram](#project-architecture-diagram)
+   * [Kubelet - Pod Diagram](#kubelet---pod-diagram)
+   * [File Structure](#file-structure)   
+   * [What to do](#what-to-do)
+
 # Udagram Image Filtering Application
 
 Udagram is a simple cloud application developed alongside the Udacity Cloud Engineering Nanodegree. It allows users to register and log into a web client, post photos to the feed.
@@ -46,3 +56,13 @@ root
 │   └───frontend-service: which is used to serve angular/ionic app
 │   └───reverseproxy-service: load balancer
 │   └───user-service: which is used to manage sign in/out and authentication
+```
+
+# What to do
+- Add a image processing / resizer service
+- Upate nginx load balancer for 404 Not Found request
+- Upgrade logging system with best practices
+- Secure AWS resources for least-privileged access for IAM roles
+- Create dependency graph of application services and AWS resources
+- Add self healing end points
+- Update of k8s' pods when docker container in dockerhub is updated automatically
